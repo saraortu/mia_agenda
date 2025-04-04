@@ -1,0 +1,313 @@
+*{
+    margin: 0;
+    padding: 0;  
+}
+.main{
+    font-family: 'Calibri', sans-serif;
+    background: rgb(154,34,195);
+    background: linear-gradient(0deg, rgba(154,34,195,1) 0%, rgba(61,138,194,1) 53%, rgba(12,84,194,1) 100%);
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 3fr ;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+h1{
+    text-align: center;
+    color: white;
+    font-weight: 600;
+}
+
+.title { 
+    grid-area: 1 / 1 / 2 / 6; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+/* Stile per il div del calendario */
+
+.calendar { 
+    grid-area: 2 / 1 / 3 / 2; 
+}
+
+.calendar-container{
+    padding: 20px;
+}
+
+.calendar-header {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+    color: white;
+}
+
+.modal {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* sfuocare lo sfondo quando viene attivato */
+    backdrop-filter: blur(3px); 
+}
+
+.modal-content textarea{
+    display: flex;
+    margin: auto;
+    margin-bottom: 20px;
+}
+
+/* Fine stile per calendario */
+
+.note { 
+    grid-area: 2 / 2 / 3 / 3; 
+}
+
+.note-input{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.note-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+textarea {
+    width: 80%;
+    height: 120px;
+    margin: 20px;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+button{
+    padding: 10px;
+    width: 200px;
+    height: 50px;
+    background: #bf00ff;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.note-list h2{
+    color: white;
+    font-family: 'Calibri', sans-serif;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+#note-element {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+}
+
+#note-element li {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 18px;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.delete-btn {
+    background: #ce62ec;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #9a36e2;
+}
+
+/* Stile settimane */
+.weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #ffff;
+    padding: 0 5px;
+}
+
+/* Stile per i giorni e allineamento */
+.days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.day {
+    aspect-ratio: 1;
+    padding: 12px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.day:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.day.empty {
+    background-color: transparent;
+    cursor: default;
+}
+
+.day.empty:hover {
+    transform: none;
+    box-shadow: none;
+}
+
+.day-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+.day.has-note {
+    background-color: #ffeaa7;
+    border: 2px solid #fdcb6e;
+}
+.day.has-note::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 8px;
+    height: 8px;
+    background-color: #fdcb6e;
+    border-radius: 50%;
+}
+
+.day-note-preview {
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-grow: 1;
+    color: #636e72;
+}
+
+/*
+#notes-list li {
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+*/
+
+@media screen and (max-width: 600px) {
+
+    .main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr;
+    }
+
+    .title { 
+        grid-area: 1 / 1 / 2 / 2; 
+    }
+
+    .calendar { 
+        grid-area: 2 / 1 / 3 / 2; 
+        margin: 20px;
+    }
+
+    .note { 
+        grid-area: 3 / 1 / 4 / 2; 
+    }
+
+    .container {
+        padding: 15px;
+    }
+    
+    .calendar-header {
+        padding: 10px;
+    }
+    
+    .calendar-header h2 {
+        font-size: 1.2rem;
+        padding: 0 5px;
+    }
+    
+    .nav-buttons button {
+        width: 36px;
+        height: 36px;
+        font-size: 0.9rem;
+    }
+    
+    .day {
+        padding: 8px;
+    }
+    
+    .day-number {
+        font-size: 0.9rem;
+    }
+    
+    .day-note-preview {
+        font-size: 0.65rem;
+    }
+    
+    .modal-actions {
+        flex-wrap: wrap;
+    }
+    
+    .modal-actions button {
+        flex-grow: 1;
+        justify-content: center;
+    }
+
+    /*
+    h1{
+        font-size: 1.5em;
+    }
+    textarea {
+        width: 80%;
+    }
+     */
+}
+#add-note {
+ font-size: 120%;   
+}
+#add-note:hover {
+background-color:#9a36e2 ;
+}
+span{
+    line-break: anywhere;
+    padding: 5px;
+}
+
+

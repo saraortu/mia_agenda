@@ -1,0 +1,175 @@
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: 600;
+}
+
+.nav-buttons-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.nav-buttons button {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.nav-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+    animation: modalOpen 0.3s ease-out;
+}
+
+/* Do un effetto all'apertura */
+@keyframes modalOpen {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Modale per l'inserimento della nota */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-header h3 {
+    color: #6c5ce7;
+    font-size: 1.3rem;
+}
+
+.note-textarea {
+    width: 100%;
+    min-height: 200px;
+    border: 2px solid #dfe6e9;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: inherit;
+    margin-bottom: 20px;
+    transition: border-color 0.3s;
+    font-size: 0.95rem;
+}
+
+.note-textarea:focus {
+    outline: none;
+    border-color: #a29bfe;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+
+/* Bottone per chiudere */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #636e72;
+    transition: color 0.2s;
+}
+
+.close-btn:hover {
+    color: #2d3436;
+}
+
+/* Bottone per il salvataggio della nota */
+.save-btn {
+    background-color: #6c5ce7;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #5649d6;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 10px rgba(108, 92, 231, 0.3);
+}
+
+
+/* Colore bottone per annullare */
+.cancel-btn {
+    background-color: #dfe6e9;
+    color: #2d3436;
+}
+
+.cancel-btn:hover {
+    background-color: #b2bec3;
+    transform: translateY(-2px);
+}
+
+/* Colorare giorno attuale */
+.today {
+    background-color: #a29bfe;
+    color: white;
+}
+
+.today .day-number {
+    color: white;
+}
