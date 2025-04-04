@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style/style.css">
+    <link rel="stylesheet" href="./assets/style/calendar.css">
+    <script src="script/script.js"></script>
+    <script src="script/calendar.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>💫 Mia Agenda 💫</title>
+</head>
+<body>
+    <div class="main">
+        <div class="title">
+            <h1>💫 MIA AGENDA 💫</h1>
+        </div> 
+         <div class="calendar">
+            <h1>&#128197 Calendario</h1>  
+            <div class="calendar-container">
+                    <div class="calendar-header">
+                        <div class="nav-buttons-container">
+                            <div class="nav-buttons">
+                                <button id="prev-year" title="Anno precedente">
+                                    <i class="fas fa-angle-double-left"></i>
+                                </button>
+                                <button id="prev-month" title="Mese precedente">
+                                    <i class="fas fa-angle-left"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <h2 id="current-month-year"></h2>                 
+                        <div class="nav-buttons-container">
+                            <div class="nav-buttons">
+                                <button id="next-month" title="Mese successivo">
+                                    <i class="fas fa-angle-right"></i>
+                                </button>
+                                <button id="next-year" title="Anno successivo">
+                                    <i class="fas fa-angle-double-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inserisco i giorni della settimana -->
+                    <div class="weekdays">
+                        <strong>Lun</strong>
+                        <strong>Mar</strong>
+                        <strong>Mer</strong>
+                        <strong>Gio</strong>
+                        <strong>Ven</strong>
+                        <strong>Sab</strong>
+                        <strong>Dom</strong>
+                    </div>                   
+                    <div class="days" id="calendar-days">
+                        <!-- I giorni del calendario verranno inseriti qui via JavaScript -->
+                    </div>
+            </div>                  
+        </div>
+
+        <!-- Finestra utilizzata per l'apertura dell'annotazione -->
+        <div class="modal" id="note-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modal-date"></h3>
+                    <button class="close-btn" id="close-modal">&times;</button>
+                </div>
+                <textarea id="note-text" placeholder="Segna annotazioni..."></textarea>
+                <div class="modal-actions">
+                    <button id="delete-note" class="delete-btn">
+                        <i class="fas fa-trash-alt"></i> Elimina
+                    </button>
+                    <button id="cancel-note" class="cancel-btn">
+                        <i class="fas fa-times"></i> Annulla
+                    </button>
+                    <button id="save-note" class="save-btn">
+                        <i class="fas fa-save"></i> Salva
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="note">
+            <h1>📝 Annotazioni</h1>
+            <div class="note-input">
+                <textarea id="note" placeholder="Scrivi qualcosa..."></textarea>
+                <button id="add-note">Aggiungi Nota</button>
+            </div>
+            <div class="note-list">
+                <h2>✏️ Le tue note ✏️</h2>
+                <ul id="note-element"></ul>
+            </div>    
+        </div>
+    
+    </div>
+</body>
+</html>
